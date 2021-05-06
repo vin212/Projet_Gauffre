@@ -1,22 +1,22 @@
 package modele;
 
 import structure.Point;
-//import structure.Point;
 
 public class Gauffre 
 {
-	private boolean gauffre[][];
+	private int gauffre[][];
 	private Point pourri;
 	private int hauteur;
 	private int longueur;
-
+	private int nb_tour;
 
 	public Gauffre (int hauteur, int longueur)
 	{
-		this.gauffre = new boolean [hauteur][longueur];
+		this.gauffre = new int [hauteur][longueur];
 		this.pourri = new Point (0,0);
 		this.hauteur = hauteur;
 		this.longueur = longueur;
+		nb_tour = 0;
 
 
 		InitGauffre();
@@ -24,17 +24,37 @@ public class Gauffre
 
 	public Boolean EstPourri (Point p)
 	{
-		return (p.getx() == pourri.getx() && p.getx() == pourri.gety());
+		return (p.getx() == pourri.getx() && p.gety() == pourri.gety());
 	}
 
 	public Boolean EstManger (Point p)
 	{
-		return ( !gauffre[p.gety()][p.getx()]) ;
+		return (gauffre[p.gety()][p.getx()] != -1) ;
 	}
 
 	public void MangerUnCarre (Point p)
 	{
-		gauffre[p.gety()][p.getx()] = false;
+		gauffre[p.gety()][p.getx()] = nb_tour;
+	}
+
+	public void RemettreUnCarre (Point p)
+	{
+		gauffre[p.gety()][p.getx()] = -1;
+	}
+
+	public int ValeurTourCarre (Point p)
+	{
+		return (gauffre[p.gety()][p.getx()]);
+	}
+
+	public int getTour ()
+	{
+		return nb_tour;
+	}
+
+	public void IncrementeTour ()
+	{
+		nb_tour++;
 	}
 
 	public int hauteur ()
@@ -53,7 +73,7 @@ public class Gauffre
 		{
 			for (int j = 0; j < this.longueur; j++)
 			{
-				gauffre[i][j] = true;
+				gauffre[i][j] = -1;
 			}
 		}
 	}
