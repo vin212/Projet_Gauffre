@@ -1,4 +1,4 @@
-import src.Gauffre;
+import modele.Gauffre;
 import structure.Point;
 
 public class main 

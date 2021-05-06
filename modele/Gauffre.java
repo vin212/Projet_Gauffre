@@ -1,4 +1,4 @@
-package src;
+package modele;
 
 import structure.Point;
 //import structure.Point;
