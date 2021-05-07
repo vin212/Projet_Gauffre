@@ -21,4 +21,9 @@ public class Point
 		return this.y;
 	}
 
+	public boolean CompareTo (Point p)
+	{
+		return (p.x == this.x && p.y == this.y);
+	}
+
 }

@@ -23,6 +23,23 @@ public class main
 		p = new Point(0,0);
 		System.out.println(g.EstPourri(p));
 
+		System.out.println();
+		Gauffre gauf = g.Clone();
+
+		gauf.AfficherGauffre_CMD ();
+		p = new Point(2,2);
+		gauf.MangerUnCarre(p);
+
+		System.out.println();
+		g.AfficherGauffre_CMD ();
+		System.out.println();
+		System.out.println();
+		gauf.AfficherGauffre_CMD ();
+		System.out.println();
+
+
+
 		SwingUtilities.invokeLater(new Fenetre(g));
+		SwingUtilities.invokeLater(new Fenetre(gauf));
 	}
 }

@@ -9,6 +9,7 @@ public class Gauffre
 	private int hauteur;
 	private int longueur;
 	private int nb_tour;
+	private int nb_restant;
 
 	public Gauffre (int hauteur, int longueur)
 	{
@@ -17,6 +18,8 @@ public class Gauffre
 		this.hauteur = hauteur;
 		this.longueur = longueur;
 		nb_tour = 0;
+
+		this.nb_restant = hauteur * longueur;
 
 
 		InitGauffre();
@@ -74,6 +77,28 @@ public class Gauffre
 			for (int j = 0; j < this.longueur; j++)
 			{
 				gauffre[i][j] = -1;
+			}
+		}
+	}
+
+	public Gauffre Clone ()
+	{
+		Gauffre gauf = new Gauffre (this.hauteur,this.longueur);
+		gauf.nb_tour = this.nb_tour;
+		gauf.nb_restant = this.nb_restant;
+
+		RemplaceGauffre(gauf);
+
+		return gauf;
+	}
+
+	private void RemplaceGauffre (Gauffre gauf)
+	{
+		for (int i = 0; i < this.hauteur; i++)
+		{
+			for (int j = 0; j < this.longueur; j++)
+			{
+				gauf.gauffre[i][j] = this.gauffre[i][j];
 			}
 		}
 	}
