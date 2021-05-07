@@ -1,41 +1,47 @@
-import java.awt.Point;
+package controller;
+
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Iterator;
+
+import modele.Gauffre;
+//import Controller.controller;
+import structure.Point;
 
 public class IAA {
     Random r;
     Gauffre g;
-    Logger log;
+    //Logger log;
     
     public IAA(Gauffre gauffre){
         g = gauffre;
     }
 
-    @Override
+    /*@Override
     public void initialise(){
         log = Configuration.instance().logger();
         log.info("Activation de l'IA.");
-    }
+    }*/
 
     public Point Joue(){
         Controller control = new Controller(g);
         ArrayList<Point> coup = successeur(g);
         ArrayList<Point> gagnant = new ArrayList<Point>();
-        Iterator<Point> I = coup.Iterator();
-        Random r;
+        Iterator<Point> I = coup.iterator();
+        Random r = new Random();
         boolean trouve = false;
         boolean feuille;
         Point p;
 
         // On a une feuille et donc que le poison de mangeable
         // defaite inevitable
-        if (successeur.size() == 1){
+        if (coup.size() == 1){
             return I.next();
         }
         // Sinon
         while(I.hasNext()){
             p = I.next();
-            control.Tour(g,p);
+            control.Tour(p);
             trouve = Calcul_toi(g);
             if (trouve){
                 gagnant.add(p);
@@ -49,7 +55,7 @@ public class IAA {
         Controller control = new Controller(g);
         ArrayList<Point> coup = successeur(g);
         ArrayList<Point> gagnant = new ArrayList<Point>();
-        Iterator<Point> I = coup.Iterator();
+        Iterator<Point> I = coup.iterator();
         boolean trouve = false;
         Point p;
 
@@ -59,7 +65,7 @@ public class IAA {
         }
         while(!trouve && I.hasNext()){
             p = I.next();
-            control.Tour(g,p);
+            control.Tour(p);
             trouve = Calcul_toi(g);
             control.annulerTour();
         }
@@ -70,7 +76,7 @@ public class IAA {
         Controller control = new Controller(g);
         ArrayList<Point> coup = successeur(g);
         ArrayList<Point> gagnant = new ArrayList<Point>();
-        Iterator<Point> I = coup.Iterator();
+        Iterator<Point> I = coup.iterator();
         boolean trouve = true;
         Point p;
 
@@ -80,7 +86,7 @@ public class IAA {
         }
         while(I.hasNext()){
             p = I.next();
-            control.Tour(g,p);
+            control.Tour(p);
             trouve = trouve && Calcul_moi(g);
             control.annulerTour();
         }
@@ -89,8 +95,8 @@ public class IAA {
 
     // Liste des points selectionnables lors d'une config g
     private ArrayList<Point> successeur(Gauffre g){
-        int hauteur = g.hauteur;
-        int longueur = g.longueur;
+        int hauteur = g.hauteur();
+        int longueur = g.longueur();
         ArrayList<Point> liste = new ArrayList<Point>(0);
         for (int i = 0; i < hauteur; i++){
             for (int j = 0; j < longueur; j++){

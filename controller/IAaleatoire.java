@@ -1,12 +1,16 @@
-import java.awt.Point;
+package controller;
+
 import java.util.ArrayList;
 import java.util.Random;
-import Modele.Gauffre;
+
+import modele.Gauffre;
+//import Controller.controller;
+import structure.Point;
 
 public class IAaleatoire extends IA {
     Random r;
     Gauffre g;
-    Logger log;
+    //Logger log;
 
     public IAaleatoire(Gauffre gauffre){
         r = new Random((long) 0);
@@ -15,16 +19,16 @@ public class IAaleatoire extends IA {
 
     // Fonction de démarage de l'IA
     @Override
-    public initialise(){
-        log = Configuration.instance().logger();
-        log.info("Activation de l'IA Aléatoire.");
+    public void initialise(){
+        /*log = Configuration.instance().logger();
+        log.info("Activation de l'IA Aléatoire.");*/
     }
 
 
     // Joue un coup de façon aléatoire.
     public Point joue(){
-        int hauteur = g.hauteur;
-        int longueur = g.longueur;
+        int hauteur = g.hauteur();
+        int longueur = g.longueur();
         ArrayList<Point> liste = new ArrayList<Point>(0);
         for (int i = 0; i < hauteur; i++){
             for (int j = 0; j < longueur; j++){

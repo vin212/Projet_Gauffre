@@ -1,4 +1,7 @@
-import Modele.Gauffre;
+package controller;
+
+import modele.Gauffre;
+import structure.Point;
 
 abstract class IA {
     private Gauffre gauffre;
@@ -7,12 +10,12 @@ abstract class IA {
         // Base de création d'une nouvelle IA
         // IA devant être choisi dans le fichier de config. 
 		IA instance = null;
-		String name = Configuration.instance().lis("IA");
+		//String name = Configuration.instance().lis("IA");
 		try {
-			instance = (IA) ClassLoader.getSystemClassLoader().loadClass(name).getDeclaredConstructor().newInstance();
+			instance = (IA) ClassLoader.getSystemClassLoader().loadClass("IAaleatoire").getDeclaredConstructor().newInstance();
 			instance.gauffre = g;
 		} catch (Exception e) {
-			Configuration.instance().logger().severe("Impossible de trouver l'IA : " + name);
+			//Configuration.instance().logger().severe("Impossible de trouver l'IA : " + name);
 		}
 		return instance;
 	}
@@ -28,5 +31,6 @@ abstract class IA {
 
 	// Fonction à réécrire
 	Point joue(){
+		return null;
 	}
 }
