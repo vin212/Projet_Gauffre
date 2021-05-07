@@ -21,4 +21,32 @@ public class Point
 		return this.y;
 	}
 
+	public int CompareTo (Point p)
+	{
+		if (p.x == this.x && p.y == this.y)
+		{
+			return 0;
+		}
+		else if (this.x < p.x)
+		{
+			return -1;
+		}
+		else if (this.x > p.x)
+		{
+			return 1;
+		}
+		else if (this.x == p.x && this.y > p.y)
+		{
+			return 1;
+		}
+		else if (this.x == p.x && this.y < p.y)
+		{
+			return -1;
+		}
+		else
+		{
+			return -2;
+		}
+	}
+
 }
