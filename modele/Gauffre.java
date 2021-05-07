@@ -37,11 +37,13 @@ public class Gauffre
 
 	public void MangerUnCarre (Point p)
 	{
+		this.nb_restant --;
 		gauffre[p.getx()][p.gety()] = nb_tour;
 	}
 
 	public void RemettreUnCarre (Point p)
 	{
+		this.nb_restant ++;
 		gauffre[p.getx()][p.gety()] = -1;
 	}
 
@@ -70,6 +72,11 @@ public class Gauffre
 		return this.longueur;
 	}
 
+	public int getNbRestant ()
+	{
+		return this.nb_restant ();
+	}
+
 	private void InitGauffre ()
 	{
 		for (int i = 0; i < this.hauteur; i++)
@@ -87,12 +94,12 @@ public class Gauffre
 		gauf.nb_tour = this.nb_tour;
 		gauf.nb_restant = this.nb_restant;
 
-		RemplaceGauffre(gauf);
+		ClonerValeursGauffre(gauf);
 
 		return gauf;
 	}
 
-	private void RemplaceGauffre (Gauffre gauf)
+	private void ClonerValeursGauffre (Gauffre gauf)
 	{
 		for (int i = 0; i < this.hauteur; i++)
 		{
