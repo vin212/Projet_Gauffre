@@ -8,33 +8,24 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class ButonReset extends JButton implements ActionListener
+public class ButonRetour extends JButton implements ActionListener
 {
 	Gauffre gauf;
 	Controller ctrl;
 	AireDeDessin aire;
-	JLabel mort;
-	JLabel label;
-
 	
-	public ButonReset (Gauffre gauf, AireDeDessin aire,JLabel mort,JLabel label)
+	public ButonRetour (Gauffre gauf, AireDeDessin aire)
 	{
-		this.mort = mort;
+		
 		this.gauf = gauf;
 		this.aire = aire;
-		this.label = label;
 		ctrl = new Controller(this.gauf);
 	}
 
 	public void actionPerformed(ActionEvent e) 
 	{
- 		ctrl.restart();
+		System.out.println("retour");
+ 		ctrl.annulerTour();
  		aire.repaint();
-
- 		mort.setText("");
- 		mort.repaint();
-
- 		label.setText("Au joueur " + 1 + " de jouer");
- 		label.repaint();
 	}
 }

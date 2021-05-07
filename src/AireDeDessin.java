@@ -37,15 +37,30 @@ public class AireDeDessin extends JComponent {
 		counter = 1;
 	}
 
-	public void MangerMorceau (int x, int y)
+	public boolean MangerMorceau (int x, int y)
 	{
+		boolean estMort;
 		int taille_x =  getSize().height / (gauf.hauteur() ) ;
 		int taille_y =  getSize().width / (gauf.longueur() ) ;
 
 		Point p = new Point(y/taille_x,x/taille_y);
 		System.out.print("\n" + p.getx() + " " + p.gety() + "\n");
-		contr.Tour(p);
+		estMort = contr.Tour(p);
 		this.repaint();
+
+		return estMort;
+	}
+
+	public boolean MangerMorceauIA (Point p)
+	{
+		boolean estMort;
+
+		System.out.println("\n ici \n"); 
+		System.out.print("\n ia joueur : " + p.getx() + " " + p.gety() + "\n");
+		estMort = contr.Tour(p);
+		this.repaint();
+
+		return estMort;
 	}
 
 	//@Override

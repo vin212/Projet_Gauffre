@@ -8,12 +8,23 @@ import modele.Gauffre;
 //import Controller.controller;
 import structure.Point;
 
-public class IAA {
+public class IAA extends IA{
     Random r;
     Gauffre g;
     //Logger log;
     
+    public IAA()
+    {
+
+    }
+
     public IAA(Gauffre gauffre){
+        g = gauffre;
+    }
+
+    @Override
+    public void MettreGauffre (Gauffre gauffre)
+    {
         g = gauffre;
     }
 
@@ -23,8 +34,15 @@ public class IAA {
         log.info("Activation de l'IA.");
     }*/
 
-    public Point Joue(){
-        Controller control = new Controller(g);
+    @Override
+    public Point joue(){
+
+        System.out.println("debut affiche");
+
+        g.AfficherGauffre_CMD ();
+
+        System.out.println("fin affiche");
+        Controller control = new Controller(this.g);
         ArrayList<Point> coup = successeur(g);
         ArrayList<Point> gagnant = new ArrayList<Point>();
         Iterator<Point> I = coup.iterator();
