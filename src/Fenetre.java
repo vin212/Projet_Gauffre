@@ -3,6 +3,7 @@ package src;
 import javax.swing.*;
 
 import modele.Gauffre;
+//import src.AireDeDessin;
 
 
 public class Fenetre implements Runnable {
@@ -18,7 +19,10 @@ public class Fenetre implements Runnable {
 
 		g.AfficherGauffre_CMD ();
 		JFrame frame = new JFrame("Jeu Gauffre");
-		frame.add(new AireDeDessin(g));
+		AireDeDessin aire = new AireDeDessin(this.g);
+		frame.add(aire);
+		aire.addMouseListener(new EcouteurDeSouris(aire));
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 300);
 		frame.setVisible(true);

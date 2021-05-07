@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import modele.Gauffre;
 import structure.Point;
+import controleur.Controleur;
 
 
 class AireDeDessin extends JComponent {
@@ -17,6 +18,7 @@ class AireDeDessin extends JComponent {
 	Image poison;
 	Image vide;
 	Gauffre gauf;
+	Controleur contr;
 
 	public AireDeDessin(Gauffre g) {
 		this.gauf = g;
@@ -32,6 +34,17 @@ class AireDeDessin extends JComponent {
 			System.exit(1);
 		}
 		counter = 1;
+	}
+
+	public void MangerMorceau (int x, int y)
+	{
+		int taille_x =  getSize().height / (gauf.hauteur() ) ;
+		int taille_y =  getSize().width / (gauf.longueur() ) ;
+
+		Point p = new Point(y/taille_x,x/taille_y);
+		System.out.print("\n" + p.getx() + " " + p.gety() + "\n");
+		contr.Tour(gauf,p);
+		this.repaint();
 	}
 
 	//@Override
