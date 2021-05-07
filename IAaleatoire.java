@@ -13,14 +13,16 @@ public class IAaleatoire extends IA {
         g = gauffre;
     }
 
+    // Fonction de démarage de l'IA
     @Override
     public initialise(){
         log = Configuration.instance().logger();
         log.info("Activation de l'IA Aléatoire.");
     }
 
+
+    // Joue un coup de façon aléatoire.
     public Point joue(){
-        // Joue un coup de façon aléatoire.
         int hauteur = g.hauteur;
         int longueur = g.longueur;
         ArrayList<Point> liste = new ArrayList<Point>(0);

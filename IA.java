@@ -17,13 +17,16 @@ abstract class IA {
 		return instance;
 	}
 
+	// Fonction a appeler quand l'IA commence
 	final void ActiveIA(){
 		initialise();
 	}
 
+	// Fonction à réécrire
 	void initialise(){
 	}
 
+	// Fonction à réécrire
 	Point joue(){
 	}
 }
