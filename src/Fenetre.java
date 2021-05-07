@@ -1,6 +1,7 @@
 package src;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 import modele.Gauffre;
@@ -44,8 +45,6 @@ public class Fenetre implements Runnable {
 
 
 		aire.addMouseListener(new EcouteurDeSouris(aire));
-
-		
 	}
 
 }

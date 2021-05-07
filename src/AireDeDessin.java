@@ -53,6 +53,7 @@ class AireDeDessin extends JComponent {
 
 
 
+
 		int width = getSize().width;
 		int height = getSize().height;
 

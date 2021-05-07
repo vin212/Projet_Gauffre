@@ -62,6 +62,13 @@ public class Gauffre
 		nb_tour++;
 	}
 
+
+	public void DecrementeTour()
+	{
+		nb_tour++;
+	}
+
+
 	public int hauteur ()
 	{
 		return this.hauteur;
