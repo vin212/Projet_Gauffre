@@ -12,7 +12,7 @@ import structure.Point;
 import controller.Controller;
 
 
-class AireDeDessin extends JComponent {
+public class AireDeDessin extends JComponent {
 	int counter;
 	Image plein;
 	Image poison;
@@ -22,6 +22,7 @@ class AireDeDessin extends JComponent {
 
 	public AireDeDessin(Gauffre g) {
 		this.gauf = g;
+		contr = new Controller(g);
 		try {
 			InputStream in = new FileInputStream("ressource/texture/plein.png");
 			plein = ImageIO.read(in);
@@ -43,7 +44,7 @@ class AireDeDessin extends JComponent {
 
 		Point p = new Point(y/taille_x,x/taille_y);
 		System.out.print("\n" + p.getx() + " " + p.gety() + "\n");
-		contr.Tour(gauf,p);
+		contr.Tour(p);
 		this.repaint();
 	}
 

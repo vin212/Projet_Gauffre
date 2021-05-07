@@ -65,7 +65,7 @@ public class Gauffre
 
 	public void DecrementeTour()
 	{
-		nb_tour++;
+		nb_tour--;
 	}
 
 
@@ -128,6 +128,7 @@ public class Gauffre
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 }

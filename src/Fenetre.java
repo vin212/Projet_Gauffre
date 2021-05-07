@@ -23,9 +23,9 @@ public class Fenetre implements Runnable {
 
 		g.AfficherGauffre_CMD ();
 		JFrame frame = new JFrame("Jeu Gauffre");
-		JButton bouton = new JButton("Mon bouton");
+		JButton bouton = new JButton("Reset");
 
-		bouton.addActionListener(new ButonReset(this.g));
+		
 
 		
 
@@ -33,12 +33,12 @@ public class Fenetre implements Runnable {
 		frame.setSize(600, 400);
 		frame.setVisible(true);
 
-		AireDeDessin aire= new AireDeDessin	(g);
+		AireDeDessin aire= new AireDeDessin	(this.g);
+		bouton.addActionListener(new ButonReset(this.g,aire));
 
 		JPanel container = new JPanel();
 		container.setPreferredSize(new Dimension(100, 400));
 		container.add(bouton);
-
 		frame.add(container, BorderLayout.EAST);
 		frame.add(aire, BorderLayout.CENTER);
 

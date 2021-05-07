@@ -18,6 +18,5 @@ public class EcouteurDeSouris extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		System.out.println(e.getX() + "," + e.getY());
 		aire.MangerMorceau(e.getX(), e.getY());
-		//aire.repaint();
 	}
 }

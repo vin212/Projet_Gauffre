@@ -1,7 +1,8 @@
 package gestion_bouton;
 
 import modele.Gauffre;
-//import controller.Controller;
+import controller.Controller;
+import src.AireDeDessin;
 
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -11,14 +12,19 @@ public class ButonReset extends JButton implements ActionListener
 {
 	Gauffre gauf;
 	Controller ctrl;
+	AireDeDessin aire;
 	
-	public ButonReset (Gauffre gauf)
+	public ButonReset (Gauffre gauf, AireDeDessin aire)
 	{
+		
 		this.gauf = gauf;
+		this.aire = aire;
+		ctrl = new Controller(this.gauf);
 	}
 
 	public void actionPerformed(ActionEvent e) 
 	{
- 		ctrl.restart(gauf);
+ 		ctrl.restart();
+ 		aire.repaint();
 	}
 }
