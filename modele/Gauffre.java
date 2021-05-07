@@ -74,7 +74,7 @@ public class Gauffre
 
 	public int getNbRestant ()
 	{
-		return this.nb_restant ();
+		return this.nb_restant;
 	}
 
 	private void InitGauffre ()
