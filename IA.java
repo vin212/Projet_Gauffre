@@ -1,3 +1,5 @@
+import Modele.Gauffre;
+
 abstract class IA {
     private Gauffre gauffre;
 
@@ -13,5 +15,15 @@ abstract class IA {
 			Configuration.instance().logger().severe("Impossible de trouver l'IA : " + name);
 		}
 		return instance;
+	}
+
+	final void ActiveIA(){
+		initialise();
+	}
+
+	void initialise(){
+	}
+
+	Point joue(){
 	}
 }
