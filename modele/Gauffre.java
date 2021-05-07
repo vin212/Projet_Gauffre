@@ -32,22 +32,22 @@ public class Gauffre
 
 	public Boolean EstManger (Point p)
 	{
-		return (gauffre[p.gety()][p.getx()] != -1) ;
+		return (gauffre[p.getx()][p.gety()] != -1) ;
 	}
 
 	public void MangerUnCarre (Point p)
 	{
-		gauffre[p.gety()][p.getx()] = nb_tour;
+		gauffre[p.getx()][p.gety()] = nb_tour;
 	}
 
 	public void RemettreUnCarre (Point p)
 	{
-		gauffre[p.gety()][p.getx()] = -1;
+		gauffre[p.getx()][p.gety()] = -1;
 	}
 
 	public int ValeurTourCarre (Point p)
 	{
-		return (gauffre[p.gety()][p.getx()]);
+		return (gauffre[p.getx()][p.gety()]);
 	}
 
 	public int getTour ()

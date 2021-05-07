@@ -27,8 +27,22 @@ public class main
 		Gauffre gauf = g.Clone();
 
 		gauf.AfficherGauffre_CMD ();
-		p = new Point(2,2);
+		p = new Point(4,6);
 		gauf.MangerUnCarre(p);
+		p = new Point(4,5);
+		gauf.MangerUnCarre(p);
+		p = new Point(4,4);
+		gauf.MangerUnCarre(p);
+		p = new Point(3,6);
+		gauf.MangerUnCarre(p);
+		p = new Point(2,6);
+		gauf.MangerUnCarre(p);
+		p = new Point(3,5);
+		gauf.MangerUnCarre(p);
+		p = new Point(2,5);
+		gauf.MangerUnCarre(p);
+
+
 
 		System.out.println();
 		g.AfficherGauffre_CMD ();

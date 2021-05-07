@@ -15,6 +15,7 @@ class AireDeDessin extends JComponent {
 	int counter;
 	Image plein;
 	Image poison;
+	Image vide;
 	Gauffre gauf;
 
 	public AireDeDessin(Gauffre g) {
@@ -24,6 +25,8 @@ class AireDeDessin extends JComponent {
 			plein = ImageIO.read(in);
 			in = new FileInputStream("ressource/texture/poison.png");
 			poison = ImageIO.read(in);
+			in = new FileInputStream("ressource/texture/vide.png");
+			vide = ImageIO.read(in);
 		} catch (Exception e) {
 			System.out.print("erreur \n");
 			System.exit(1);
@@ -54,7 +57,7 @@ class AireDeDessin extends JComponent {
 			
 			for (int j = 0; j < gauf.longueur(); j++)
 			{
-				p = new Point(j,i);
+				p = new Point(i,j);
 
 				if (gauf.EstPourri(p))
 				{
@@ -66,7 +69,7 @@ class AireDeDessin extends JComponent {
 				}
 				else
 				{
-					//drawable.drawImage(plein, i * taille_x , j * taille_y , taille_x , taille_y , null);
+					drawable.drawImage(vide, j * taille_y , i * taille_x , taille_y , taille_x , null);
 				}
 			}
 
@@ -80,10 +83,5 @@ class AireDeDessin extends JComponent {
 				drawable.drawLine((j+1) * taille_y, 0 ,(j+1) * taille_y, gauf.hauteur() * taille_x );
 			}
 		}
-		// On efface tout
-		
-
-		// On affiche une petite image au milieu
-		//drawable.drawImage(plein, 0, 0, taille_x, taille_y, null);
 	}
 }
