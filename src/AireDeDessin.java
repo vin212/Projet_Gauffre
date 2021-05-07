@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import modele.Gauffre;
 import structure.Point;
-import controleur.Controleur;
+import controller.Controller;
 
 
 class AireDeDessin extends JComponent {
@@ -18,7 +18,7 @@ class AireDeDessin extends JComponent {
 	Image poison;
 	Image vide;
 	Gauffre gauf;
-	Controleur contr;
+	Controller contr;
 
 	public AireDeDessin(Gauffre g) {
 		this.gauf = g;
@@ -51,8 +51,12 @@ class AireDeDessin extends JComponent {
 	public void paintComponent(Graphics g) {
 		Graphics2D drawable = (Graphics2D) g;
 
+
+
 		int width = getSize().width;
 		int height = getSize().height;
+
+		System.out.println(width + " " + height + "\n");
 
 		Point center = new Point(width/2, height/2);
 
