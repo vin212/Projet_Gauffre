@@ -31,12 +31,15 @@ public class EcouteurDeSouris extends MouseAdapter {
 		label.setText("Au joueur " + (aire.gauf.getTour() %2 + 1) + " de jouer");
 		label.repaint();
 
-		if (ia != null && (aire.gauf.getTour() %2 + 1) == 1 && ia.estActive())
+		aire.repaint();
+
+		if (ia != null && (aire.gauf.getTour() %2 + 1) == 2 && ia.estActive() && !estMort)
 		{
-			System.out.println("je joue");
+			System.out.println("je joue"); 
 			Point p = ia.joue();
 			System.out.println("fin joue");
-			aire.MangerMorceauIA(p);
+			estMort = aire.MangerMorceauIA(p);
+			
 			try 
 			{
 				TimeUnit.SECONDS.sleep(1);

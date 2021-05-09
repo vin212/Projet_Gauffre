@@ -63,7 +63,7 @@ public class AireDeDessin extends JComponent {
 		return estMort;
 	}
 
-	//@Override
+	@Override
 	public void paintComponent(Graphics g) {
 		Graphics2D drawable = (Graphics2D) g;
 
