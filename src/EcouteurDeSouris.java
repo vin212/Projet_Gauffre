@@ -33,6 +33,7 @@ public class EcouteurDeSouris extends MouseAdapter {
 
 		aire.repaint();
 
+		System.out.println("id : " + ia);
 		if (ia != null && (aire.gauf.getTour() %2 + 1) == 2 && ia.estActive() && !estMort)
 		{
 			System.out.println("je joue"); 

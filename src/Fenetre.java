@@ -14,6 +14,9 @@ import controller.*;
 public class Fenetre implements Runnable {
 
 	Gauffre g;
+	IA iaaleatoire;
+	IA ia;
+	IA ianon;
 
 	public Fenetre (Gauffre g)
 	{
@@ -29,12 +32,9 @@ public class Fenetre implements Runnable {
 		JLabel mort = new JLabel("");
 		JButton bouton = new JButton("Reset");
 
-		//IA ia;
-		IA ia = new IAA(this.g);
-		ia = ia.nouvelle(this.g);
-		ia.MettreGauffre(this.g);
-
-		System.out.println(ia);
+		//ia.MettreGauffre(this.g);
+		//ia = null;
+		//System.out.println(ia);
 
 		
 
@@ -62,6 +62,7 @@ public class Fenetre implements Runnable {
 		bouton = new JButton("ActiverIA");
 		bouton.addActionListener(new ButonActiverIA(this.g,aire,ia));
 		container.add(bouton);
+
 
 		System.out.println(g.getTour());
 	

@@ -5,12 +5,10 @@ import java.util.Random;
 import java.util.Iterator;
 
 import modele.Gauffre;
-//import Controller.controller;
 import structure.Point;
 
 public class IAA extends IA{
     Random r;
-    Gauffre g;
     //Logger log;
     
     public IAA()
@@ -19,12 +17,6 @@ public class IAA extends IA{
     }
 
     public IAA(Gauffre gauffre){
-        g = gauffre;
-    }
-
-    @Override
-    public void MettreGauffre (Gauffre gauffre)
-    {
         g = gauffre;
     }
 
@@ -59,6 +51,7 @@ public class IAA extends IA{
         // Sinon
         while(I.hasNext()){
             p = I.next();
+            System.out.println(p.getx() + " " + p.gety());
             control.Tour(p);
             trouve = Calcul_toi(g);
             if (trouve){
@@ -66,6 +59,7 @@ public class IAA extends IA{
             }
             control.annulerTour();
         }
+        System.out.println(gagnant);
         return gagnant.get(r.nextInt(gagnant.size()));
     }
 
@@ -79,7 +73,14 @@ public class IAA extends IA{
 
         // Si config final
         if (g.EstManger(new Point(1, 0)) && g.EstManger(new Point(0, 1))) {
-            return false;
+            if (g.EstManger(new Point(0,0)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         while(!trouve && I.hasNext()){
             p = I.next();
@@ -100,7 +101,14 @@ public class IAA extends IA{
 
         // Si config final
         if (g.EstManger(new Point(1, 0)) && g.EstManger(new Point(0, 1))){
-            return true;
+            if (g.EstManger(new Point(0,0)))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         while(I.hasNext()){
             p = I.next();

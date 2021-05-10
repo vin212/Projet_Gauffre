@@ -5,17 +5,17 @@ import structure.Point;
 import controller.*;
 
 public abstract class IA {
-    private Gauffre gauffre;
+    public Gauffre g;
     private boolean active = false;
 
-	public static IA nouvelle(Gauffre g) {
+	public static IA nouvelle(Gauffre g, String classIaString) {
         // Base de création d'une nouvelle IA
         // IA devant être choisi dans le fichier de config. 
 		IA instance = null;
 		//String name = Configuration.instance().lis("IA");
 		try {
-			instance = (IA) ClassLoader.getSystemClassLoader().loadClass("controller.IAA").getDeclaredConstructor().newInstance();
-			instance.gauffre = g;
+			instance = (IA) ClassLoader.getSystemClassLoader().loadClass(classIaString).getDeclaredConstructor().newInstance();
+			instance.g = g;
 		} catch (Exception e) {
 			//Configuration.instance().logger().severe("Impossible de trouver l'IA : " + name);
 			System.out.println(e);
@@ -46,7 +46,8 @@ public abstract class IA {
 		return null;
 	}
 
-	public void MettreGauffre(Gauffre g){
-
-	}
+	/*public void MettreGauffre (Gauffre gauffre)
+    {
+        g = gauffre;
+    }*/
 }
