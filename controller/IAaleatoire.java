@@ -9,7 +9,6 @@ import structure.Point;
 
 public class IAaleatoire extends IA {
     Random r;
-    Gauffre g;
     //Logger log;
 
     public IAaleatoire(Gauffre gauffre){
@@ -17,12 +16,20 @@ public class IAaleatoire extends IA {
         g = gauffre;
     }
 
+    public IAaleatoire(){
+        r = new Random((long) 0);
+    }
+
+
     // Fonction de démarage de l'IA
     @Override
     public void initialise(){
         /*log = Configuration.instance().logger();
         log.info("Activation de l'IA Aléatoire.");*/
     }
+
+    @Override
+    
 
 
     // Joue un coup de façon aléatoire.

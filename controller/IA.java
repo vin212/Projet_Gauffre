@@ -2,35 +2,52 @@ package controller;
 
 import modele.Gauffre;
 import structure.Point;
+import controller.*;
 
-abstract class IA {
-    private Gauffre gauffre;
+public abstract class IA {
+    public Gauffre g;
+    private boolean active = false;
 
-	static IA nouvelle(Gauffre g) {
+	public static IA nouvelle(Gauffre g, String classIaString) {
         // Base de création d'une nouvelle IA
         // IA devant être choisi dans le fichier de config. 
 		IA instance = null;
 		//String name = Configuration.instance().lis("IA");
 		try {
-			instance = (IA) ClassLoader.getSystemClassLoader().loadClass("IAaleatoire").getDeclaredConstructor().newInstance();
-			instance.gauffre = g;
+			instance = (IA) ClassLoader.getSystemClassLoader().loadClass(classIaString).getDeclaredConstructor().newInstance();
+			instance.g = g;
 		} catch (Exception e) {
 			//Configuration.instance().logger().severe("Impossible de trouver l'IA : " + name);
+			System.out.println(e);
 		}
 		return instance;
 	}
 
 	// Fonction a appeler quand l'IA commence
-	final void ActiveIA(){
+	public final void ActiveIA(){
 		initialise();
+		this.active = true;
+	}
+
+	public void DesactiverIA (){
+		this.active = false;
+	}
+
+	public boolean estActive () {
+		return this.active;
 	}
 
 	// Fonction à réécrire
-	void initialise(){
+	public void initialise(){
 	}
 
 	// Fonction à réécrire
-	Point joue(){
+	public Point joue(){
 		return null;
 	}
+
+	/*public void MettreGauffre (Gauffre gauffre)
+    {
+        g = gauffre;
+    }*/
 }

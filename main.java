@@ -12,7 +12,7 @@ public class main
 
 	{
 		System.out.println("Hello World !");
-		Gauffre g = new Gauffre(5,7);	
+		Gauffre g = new Gauffre(4,4);	
 
 
 
