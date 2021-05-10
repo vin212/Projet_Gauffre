@@ -36,7 +36,8 @@ public class Fenetre implements Runnable {
 		//ia = null;
 		//System.out.println(ia);
 
-		
+		ia = new IAA(this.g);
+		ia = ia.nouvelle(this.g,"controller.IAA");
 
 		
 

@@ -30,8 +30,7 @@ public class ButonActiverIA extends JButton implements ActionListener
 	public void actionPerformed(ActionEvent e) 
 	{
 		System.out.println("activer ia");
-		ia = new IAaleatoire(this.gauf);
-		ia = ia.nouvelle(this.gauf,"controller.IAaleatoire");
+		
  		ia.ActiveIA();
  		System.out.println("ia activer");
 	}
