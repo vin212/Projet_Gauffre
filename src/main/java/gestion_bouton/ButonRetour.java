@@ -1,37 +1,31 @@
 package gestion_bouton;
 
 import modele.Gauffre;
-import controller.*;
-import src.AireDeDessin;
-import controller.IA;
+import controller.Controller;
+import components.AireDeDessin;
 
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class ButonActiverIA extends JButton implements ActionListener
+public class ButonRetour extends JButton implements ActionListener
 {
 	Gauffre gauf;
 	Controller ctrl;
 	AireDeDessin aire;
-	IA ia;
 	
-	public ButonActiverIA (Gauffre gauf, AireDeDessin aire,IA ia)
+	public ButonRetour (Gauffre gauf, AireDeDessin aire)
 	{
 		
 		this.gauf = gauf;
 		this.aire = aire;
-		this.ia = ia;
 		ctrl = new Controller(this.gauf);
-
-
 	}
 
 	public void actionPerformed(ActionEvent e) 
 	{
-		System.out.println("activer ia");
-		
- 		ia.ActiveIA();
- 		System.out.println("ia activer");
+		System.out.println("retour");
+ 		ctrl.annulerTour();
+ 		aire.repaint();
 	}
 }

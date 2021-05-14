@@ -1,4 +1,4 @@
-package src;
+package components;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-import src.AireDeDessin;
+import components.AireDeDessin;
 import controller.IA;
 import structure.Point;
 

@@ -1,11 +1,12 @@
+package runner;
 import javax.swing.*;
 
 import modele.Gauffre;
 import structure.Point;
-import src.Fenetre;
+import components.Fenetre;
 
 
-public class main 
+public class AppRunner 
 {
 
 	public static void main(String[] args)
@@ -13,7 +14,6 @@ public class main
 	{
 		System.out.println("Hello World !");
 		Gauffre g = new Gauffre(4,4);	
-
 
 
 		SwingUtilities.invokeLater(new Fenetre(g));

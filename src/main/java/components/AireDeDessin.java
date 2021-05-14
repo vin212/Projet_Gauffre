@@ -1,4 +1,4 @@
-package src;
+package components;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -24,11 +24,11 @@ public class AireDeDessin extends JComponent {
 		this.gauf = g;
 		contr = new Controller(g);
 		try {
-			InputStream in = new FileInputStream("ressource/texture/plein.png");
+			InputStream in = new FileInputStream("src/main/java/ressource/texture/plein.png");
 			plein = ImageIO.read(in);
-			in = new FileInputStream("ressource/texture/poison.png");
+			in = new FileInputStream("src/main/java/ressource/texture/poison.png");
 			poison = ImageIO.read(in);
-			in = new FileInputStream("ressource/texture/vide.png");
+			in = new FileInputStream("src/main/java/ressource/texture/vide.png");
 			vide = ImageIO.read(in);
 		} catch (Exception e) {
 			System.out.print("erreur \n");
